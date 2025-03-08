@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Gaurang Gupta - Experience{% endblock %}
+
+{% block content %}
+<section class="experience-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Technical Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Developer</h3>
+                    <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Created a RAG (Retrieval Augmented Generation) pipeline to train the model with a custom dataset to query the result of specific documents from the user and also implemented the user feedback loop to enhance the responses, using Mistral.Ai from the huggingface and the Llama-Index framework.</li>
+                            <li>Develop generative AI chat-bot using open source Large Language Model like BLOOM, LaMini which also incorporates media recommendation as per users prompt if required.</li>
+                            <li>Design and develop the invoice data extractor using LLM that could extract the required data according to user requirements and works on all invoice templates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Mule Developer</h3>
+                    <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Involved in the creation and deployment of the application and objects and unit testing.</li>
+                            <li>Mule application deployed using Jenkins in Anypoint Cloudhub Environment.</li>
+                            <li>Identified design gaps and defects, providing solutions and bug fixes.</li>
+                            <li>Documenting High Level Design, Impact Analysis, Unit test plan, Unit test cases, and Deployment documents.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
