@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurang Gupta - Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            padding-top: 70px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .profile-container {
+            position: relative;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .profile-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(67, 97, 238, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                top: -100%;
+                left: -100%;
+            }
+            100% {
+                top: 100%;
+                left: 100%;
+            }
+        }
+        
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .content-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+        }
+        
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lead {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-outline-secondary {
+            color: var(--light-text);
+            border-color: var(--light-text);
+        }
+        
+        .btn-outline-secondary:hover {
+            background-color: var(--light-text);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 991.98px) {
+            .about-section {
+                padding: 3rem 0;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Gaurang Gupta</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/certificates">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-4">
+                    <div class="profile-container text-center">
+                        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Gaurang Gupta" class="profile-img">
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center">
+                                <a href="https://www.linkedin.com/in/gaurang-gupta-9837a617b/" target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com/2801" target="_blank" class="btn btn-sm btn-outline-dark">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="content-card">
+                        <h1>Gaurang Gupta</h1>
+                        <h3>Software Development Engineer</h3>
+                        
+                        <div class="mb-4">
+                            <span class="skill-tag"><i class="fas fa-code"></i> C++</span>
+                            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-tag"><i class="fas fa-brain"></i> Generative AI</span>
+                            <span class="skill-tag"><i class="fas fa-cloud"></i> Mulesoft</span>
+                            <span class="skill-tag"><i class="fas fa-database"></i> Vector DB</span>
+                        </div>
+                        
+                        <p class="lead">
+                            Results-driven Software Development Engineer with expertise in <span class="highlight">C++</span>, <span class="highlight">Python</span>, <span class="highlight">System Design</span>, <span class="highlight">Generative AI</span>, and <span class="highlight">Mulesoft</span>.
+                        </p>
+                        
+                        <p>
+                            Adept at building AI-driven solutions, including <span class="highlight">Retrieval Augmented Generation (RAG)</span> pipelines, <span class="highlight">Generative AI chatbots</span>, and <span class="highlight">Invoice Data Extractors</span>. Experienced in MuleSoft application development, deployment using Jenkins on Anypoint CloudHub, and troubleshooting design gaps.
+                        </p>
+                        
+                        <p>
+                            Proficient in <span class="highlight">Azure Fundamentals</span> (AZ-900 Certified) and <span class="highlight">Git</span>, with a strong foundation in <span class="highlight">Data Structures</span>, <span class="highlight">Algorithms</span>, and <span class="highlight">Object-Oriented Programming</span>. Recognized with the Innovation Pride Award at TCS Rapid Team and a top 10% ranking in Leetcode Biweekly Contest 122.
+                        </p>
+                        
+                        <div class="mt-4 d-flex">
+                            <a href="/contact" class="btn btn-primary me-3">
+                                <i class="fas fa-envelope me-2"></i> Contact Me
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary">
+                                <i class="fas fa-download me-2"></i> Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="text-center text-white">
+                <p class="mb-2">&copy; 2024 Gaurang Gupta. All rights reserved.</p>
+                <div>
+                    <a href="https://www.linkedin.com/in/gaurang-gupta-9837a617b/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:officialgaurang2801@gmail.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
