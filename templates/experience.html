@@ -3,35 +3,65 @@
 {% block title %}Gaurang Gupta - Experience{% endblock %}
 
 {% block content %}
-<section class="experience-section py-5">
+<section class="experience-section py-5" style="background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);">
     <div class="container">
         <h2 class="section-title text-center mb-5" data-aos="fade-up">Technical Experience</h2>
         
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Developer</h3>
-                    <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+        <div class="row">
+            <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="timeline-title">Developer</h3>
+                        <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+                    </div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Created a RAG (Retrieval Augmented Generation) pipeline to train the model with a custom dataset to query the result of specific documents from the user and also implemented the user feedback loop to enhance the responses, using Mistral.Ai from the huggingface and the Llama-Index framework.</li>
-                            <li>Develop generative AI chat-bot using open source Large Language Model like BLOOM, LaMini which also incorporates media recommendation as per users prompt if required.</li>
-                            <li>Design and develop the invoice data extractor using LLM that could extract the required data according to user requirements and works on all invoice templates.</li>
+                            <li>
+                                <strong>Retrieval Augmented Generation (RAG) Pipeline</strong><br>
+                                Built a RAG pipeline by augmenting LLM knowledge with additional domain-specific data and enabling document-specific queries.<br>
+                                Implemented a user feedback loop to enhance response accuracy.<br>
+                                Utilized Mistral.AI from Hugging Face and the Llama-Index framework for efficient retrieval and generation.<br>
+                                <em>Tech Stack: Python, Hugging Face, Mistral.AI, Llama-Index, LangChain</em>
+                            </li>
+                            <li>
+                                <strong>Generative AI Chatbot with Media Recommendations</strong><br>
+                                Developed a chatbot powered by open-source Large Language Models (LLMs) like BLOOM and LaMini.<br>
+                                Incorporated media recommendations based on user prompts to enhance user engagement.<br>
+                                <em>Tech Stack: Python, BLOOM, LaMini, Llama, Hugging Face, LangChain</em>
+                            </li>
+                            <li>
+                                <strong>Invoice Data Extractor using LLM</strong><br>
+                                Designed and developed an invoice data extractor that adapts to various invoice templates.<br>
+                                Extracts required data based on user specifications, improving efficiency in document processing.<br>
+                                <em>Tech Stack: Python, OpenAI API / Hugging Face LLMs, LangChain, OCR (Tesseract / AWS Textract)</em>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Mule Developer</h3>
-                    <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+            <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="timeline-title">Mule Developer</h3>
+                        <h4 class="timeline-subtitle">Tata Consultancy Services</h4>
+                    </div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Involved in the creation and deployment of the application and objects and unit testing.</li>
-                            <li>Mule application deployed using Jenkins in Anypoint Cloudhub Environment.</li>
-                            <li>Identified design gaps and defects, providing solutions and bug fixes.</li>
-                            <li>Documenting High Level Design, Impact Analysis, Unit test plan, Unit test cases, and Deployment documents.</li>
+                            <li>
+                                Developed and deployed Mule applications, ensuring efficient API integration and data processing.<br>
+                                Conducted unit testing to validate functionality and performance of applications.<br>
+                                Deployed Mule applications using Jenkins in the Anypoint CloudHub environment.<br>
+                                Identified design gaps and defects, providing effective solutions and bug fixes.<br>
+                                Created and maintained technical documentation, including:
+                                <ul>
+                                    <li>High-Level Design (HLD)</li>
+                                    <li>Impact Analysis</li>
+                                    <li>Unit Test Plans & Cases</li>
+                                    <li>Deployment Documents</li>
+                                </ul>
+                                <em>Tech Stack: MuleSoft, Anypoint Platform, CloudHub, Jenkins, API Gateway, REST, SOAP</em>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -39,4 +69,82 @@
         </div>
     </div>
 </section>
+
+<style>
+    .experience-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+        border-left: 5px solid #007bff; /* Professional accent */
+    }
+
+    .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .experience-header {
+        margin-bottom: 15px;
+    }
+
+    .timeline-title {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 0;
+        font-weight: 600; /* Bold for emphasis */
+    }
+
+    .timeline-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 0;
+        font-weight: 500; /* Slightly lighter */
+    }
+
+    .timeline-body {
+        margin-top: 15px;
+    }
+
+    .timeline-body ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .timeline-body li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        color: #555; /* Darker text for readability */
+        font-size: 0.95rem; /* Slightly smaller font size */
+    }
+
+    .timeline-body li:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        background: #007bff; /* Professional accent */
+        border-radius: 50%;
+    }
+
+    @media (max-width: 767.98px) {
+        .experience-card {
+            padding: 20px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.1rem;
+        }
+    }
+</style>
 {% endblock %} 

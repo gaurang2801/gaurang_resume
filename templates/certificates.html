@@ -4,52 +4,293 @@
 
 {% block content %}
 <section class="certificates-section py-5">
-    <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-up">Certificates</h2>
-        
-        <div class="row">
-            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100">
-                <div class="certificate-card">
-                    <div class="certificate-body">
-                        <h3 class="certificate-title">Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</h3>
-                        <p class="certificate-issuer">Oracle</p>
-                        <p class="certificate-date">May 2024</p>
-                        <div class="certificate-description">
-                            <p>The Oracle Cloud Infrastructure 2024 Generative AI Professional certification demonstrates strong understanding of Large Language Models (LLMs) and skills in using OCI Generative AI Service.</p>
-                        </div>
-                        <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=41B2049A2FB219FD6324680C543866DB1F860A0AA41376F058EAAF0C24A36DA6" class="btn btn-outline-primary" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-            </div>
+    <div class="certificate-bg-container">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Certificates</h2>
             
-            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="200">
-                <div class="certificate-card">
-                    <div class="certificate-body">
-                        <h3 class="certificate-title">Azure Fundamentals (AZ-900)</h3>
-                        <p class="certificate-issuer">Microsoft</p>
-                        <p class="certificate-date">2023</p>
-                        <div class="certificate-description">
-                            <p>Validates foundational knowledge of cloud services and how those services are provided with Microsoft Azure.</p>
+            <div class="row">
+                {% for cert in [
+                    {
+                        "title": "Oracle Cloud Infrastructure 2024 Generative AI Certified Professional",
+                        "issuer": "Oracle",
+                        
+                        "description": "The Oracle Cloud Infrastructure 2024 Generative AI Professional certification demonstrates strong understanding of Large Language Models (LLMs) and skills in using OCI Generative AI Service.",
+                        "url": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=41B2049A2FB219FD6324680C543866DB1F860A0AA41376F058EAAF0C24A36DA6",
+                        "icon": "fa-cloud"
+                    },
+                    {
+                        "title": "Azure Fundamentals (AZ-900)",
+                        "issuer": "Microsoft",
+                       
+                        "description": "Validates foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
+                        "url": "https://www.credly.com/badges/431d37e8-106d-4ac2-b257-05c7534044f9/public_url",
+                        "icon": "fa-microsoft"
+                    },
+                    {
+                        "title": "Problem Solving (Basic)",
+                        "issuer": "HackerRank",
+                        
+                        "description": "Covers basic topics of Data Structures (such as Arrays, Strings) and Algorithms (such as Sorting and Searching).",
+                        "url": "https://www.hackerrank.com/certificates/809c70136677",
+                        "icon": "fa-code"
+                    }
+                ] %}
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="certificate-card">
+                        <div class="certificate-icon">
+                            <i class="fas {{ cert.icon }}"></i>
                         </div>
-                        <a href="https://www.credly.com/badges/431d37e8-106d-4ac2-b257-05c7534044f9/public_url" class="btn btn-outline-primary" target="_blank">View Certificate</a>
+                        <div class="certificate-body">
+                            <h3 class="certificate-title">{{ cert.title }}</h3>
+                            <div class="certificate-meta">
+                                <span class="certificate-issuer"><i class="fas fa-building"></i> {{ cert.issuer }}</span>
+                            <!-- / <span class="certificate-date"><i class="fas fa-calendar-alt"></i> {{ cert.date }}</span> -->
+                            </div>
+                            <div class="certificate-description">
+                                <p>{{ cert.description }}</p>
+                            </div>
+                            <a href="{{ cert.url }}" class="btn btn-certificate" target="_blank">
+                                <span>View Certificate</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="300">
-                <div class="certificate-card">
-                    <div class="certificate-body">
-                        <h3 class="certificate-title">Problem Solving (Basic)</h3>
-                        <p class="certificate-issuer">HackerRank</p>
-                        <p class="certificate-date">2023</p>
-                        <div class="certificate-description">
-                            <p>Covers basic topics of Data Structures (such as Arrays, Strings) and Algorithms (such as Sorting and Searching).</p>
-                        </div>
-                        <a href="https://www.hackerrank.com/certificates/809c70136677" class="btn btn-outline-primary" target="_blank">View Certificate</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .certificates-section {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .certificate-bg-container {
+        position: relative;
+        background: linear-gradient(135deg, rgba(25, 25, 112, 0.9) 0%, rgba(72, 61, 139, 0.8) 100%);
+        padding: 60px 0;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .certificate-bg-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSIjZmZmZmZmMDUiPjwvcmVjdD4KPHBhdGggZD0iTTI4IDY2TDAgNTBMMCAxNkwyOCAwTDU2IDE2TDU2IDUwTDI4IDY2TDI4IDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmMTAiIHN0cm9rZS13aWR0aD0iMiI+PC9wYXRoPgo8cGF0aCBkPSJNMjggMEwyOCAxMDBNMjggMEwwIDE2TTI4IDBMNTYgMTZNMjggNjZMNTYgNTBNMjggNjZMMCA1ME0yOCAxMDBMNTYgNTBNMjggMTAwTDAgNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZjEwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+');
+        opacity: 0.1;
+        z-index: 0;
+    }
+    
+    .section-title {
+        color: #fff;
+        position: relative;
+        margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+        background-color: #fff;
+    }
+    
+    .certificate-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        backdrop-filter: blur(5px);
+        transform-style: preserve-3d;
+    }
+    
+    .certificate-card:hover {
+        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .certificate-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+    }
+    
+    .certificate-card:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .certificate-icon {
+        position: absolute;
+        top: -25px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .certificate-card:hover .certificate-icon {
+        transform: scale(1.1) rotate(360deg);
+    }
+    
+    .certificate-body {
+        padding: 25px;
+        position: relative;
+    }
+    
+    .certificate-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #333;
+        transition: all 0.3s ease;
+        min-height: 50px;
+    }
+    
+    .certificate-card:hover .certificate-title {
+        color: #4776E6;
+    }
+    
+    .certificate-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+    
+    .certificate-issuer, .certificate-date {
+        color: #666;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .certificate-description {
+        margin-bottom: 20px;
+        color: #555;
+        font-size: 14px;
+        line-height: 1.6;
+        min-height: 90px;
+    }
+    
+    .btn-certificate {
+        background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        width: 100%;
+    }
+    
+    .btn-certificate:hover {
+        background: linear-gradient(135deg, #8E54E9 0%, #4776E6 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(71, 118, 230, 0.4);
+        color: white;
+    }
+    
+    .btn-certificate i {
+        transition: transform 0.3s ease;
+    }
+    
+    .btn-certificate:hover i {
+        transform: translateX(5px);
+    }
+    
+    /* Floating animation for cards */
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991.98px) {
+        .certificate-title {
+            min-height: auto;
+        }
+        
+        .certificate-description {
+            min-height: auto;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .certificate-bg-container {
+            padding: 40px 0;
+        }
+        
+        .certificate-card {
+            margin-bottom: 40px;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add floating animation to certificate cards with random delays
+    const cards = document.querySelectorAll('.certificate-card');
+    cards.forEach((card, index) => {
+        card.style.animation = `float 6s ease-in-out ${index * 0.5}s infinite`;
+    });
+    
+    // Add parallax effect on mouse move
+    const certificateSection = document.querySelector('.certificates-section');
+    certificateSection.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.certificate-card');
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+        
+        cards.forEach(card => {
+            const depth = 20;
+            const moveX = mouseX * depth;
+            const moveY = mouseY * depth;
+            card.style.transform = `translate(${moveX}px, ${moveY}px) rotateX(${-mouseY * 10}deg) rotateY(${mouseX * 10}deg)`;
+        });
+    });
+    
+    // Reset transform when mouse leaves the section
+    certificateSection.addEventListener('mouseleave', () => {
+        const cards = document.querySelectorAll('.certificate-card');
+        cards.forEach((card, index) => {
+            card.style.transform = '';
+            card.style.animation = `float 6s ease-in-out ${index * 0.5}s infinite`;
+        });
+    });
+});
+</script>
 {% endblock %} 
